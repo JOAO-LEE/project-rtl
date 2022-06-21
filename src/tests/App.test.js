@@ -22,6 +22,3 @@ describe('Teste se o topo da aplicação contém um conjunto fixo de links de na
       expect(linkToFavorites).toBeInTheDocument();
     });
   });
-/* acessar os elementos da tela
-interagir com os elementos (se necessário)
-fazer os tests (expects) */
