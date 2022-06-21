@@ -20,8 +20,8 @@ describe('Teste se o topo da aplicação contém um conjunto fixo de links de na
       const linkToFavorites = screen.getByRole('link',
         { name: /favorite pokémons/i });
       expect(linkToFavorites).toBeInTheDocument();
-});
-})
+    });
+  });
 /* acessar os elementos da tela
 interagir com os elementos (se necessário)
 fazer os tests (expects) */
