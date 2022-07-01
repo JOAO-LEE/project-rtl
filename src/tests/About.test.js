@@ -13,7 +13,6 @@ describe('Teste se a página contém as informações sobre a Pokédex', () => {
   it('Teste se a página contém dois parágrafos com texto sobre a Pokédex', () => {
     render(<About />);
     const aboutParagraphs = screen.getAllByText(/pokémons/i);
-    // expect(aboutParagraphs).toBeInTheDocument();
     expect(aboutParagraphs).toHaveLength(2);
   });
 
