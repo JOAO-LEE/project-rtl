@@ -91,6 +91,7 @@ describe('5. Teste o componente <Pokedex.js />', () => {
 
     const allPokemonsButton = screen.getByRole('button', { name: /all/i });
     expect(allPokemonsButton).toBeInTheDocument();
+
     const typeButtons = screen.getAllByTestId('pokemon-type-button');
     typeButtons.forEach((types) => {
       expect(types).toHaveAttribute('type', 'button', 'pokemon-type-button');
@@ -125,9 +126,9 @@ describe('5. Teste o componente <Pokedex.js />', () => {
     const alakazamName = screen.queryByText(/alakazam/i);
     expect(alakazamName).not.toBeInTheDocument();
 
-    expect(allPokemonsButton).toBeInTheDocument();
     userEvent.click(allPokemonsButton);
     const pikachuImage = screen.getByRole('img', { name: /pikachu sprite/i });
     expect(pikachuImage).toBeInTheDocument();
+    expect(allPokemonsButton).toBeInTheDocument();
   });
 });
