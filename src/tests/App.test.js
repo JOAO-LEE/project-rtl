@@ -1,24 +1,16 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { MemoryRouter } from 'react-router-dom';
+import { screen } from '@testing-library/react';
 import App from '../App';
+import renderWithRouter from './renderWithRouter';
 
-describe('Teste se o topo da aplicação contém um conjunto fixo de links de navegação',
+describe('Teste o componente <App.js />',
   () => {
-    it('O primeiro link deve possuir o texto "Home"', () => {
-      render(<MemoryRouter><App /></MemoryRouter>);
-      const linkToHome = screen.getByRole('link', { name: /home/i });
-      expect(linkToHome).toBeInTheDocument();
-    });
-    it('O segundo link deve possuir o texto "About"', () => {
-      render(<MemoryRouter><App /></MemoryRouter>);
-      const linkToAbout = screen.getByRole('link', { name: /about/i });
-      expect(linkToAbout).toBeInTheDocument();
-    });
-    it('O terceiro link deve possuir o texto "Favorite Pokémons"', () => {
-      render(<MemoryRouter><App /></MemoryRouter>);
-      const linkToFavorites = screen.getByRole('link',
-        { name: /favorite pokémons/i });
-      expect(linkToFavorites).toBeInTheDocument();
+    it(`Teste se o topo da aplicação contém 
+    um conjunto fixo de links de navegação:`, () => {
+      const links = ['Home', 'About', 'Favorite Pokémons'];
+      renderWithRouter(<App />);
+      links.forEach((link) => {
+        expect(screen.getAllByRole('link', { name: `${link}` }));
+      });
     });
   });
